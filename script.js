@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function getDownloadStatistics(startDate, endDate, datasetUUID) {
-    const url = `https://api.gbif.org/v1/occurrence/download/statistics?fromDate=${startDate}&toDate=${endDate}&datasetKey=${datasetUUID}`;
+    const url = `https://api.gbif.org/v1/occurrence/download/statistics?fromDate=${startDate}&toDate=${endDate}&datasetKey=${datasetUUID}&limit=100`;
     const response = await fetch(url);
     if (response.ok) {
         const data = await response.json();
