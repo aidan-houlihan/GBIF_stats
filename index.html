@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Statistics</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Download Statistics</h1>
+        <label for="start-date">Start Date (YYYY-MM):</label>
+        <input type="text" id="start-date">
+        <label for="end-date">End Date (YYYY-MM):</label>
+        <input type="text" id="end-date">
+        <div>
+            <input type="checkbox" id="select-all">
+            <label for="select-all">Select All</label>
+        </div>
+        <div id="dataset-checkboxes"></div>
+        <button onclick="viewStatistics()">View Statistics</button>
+        <button onclick="saveStatistics()">Save Statistics</button>
+        <pre id="output"></pre>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
