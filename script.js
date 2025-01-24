@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function getDownloadStatistics(startDate, endDate, datasetUUID) {
-    const url = `https://api.gbif.org/v1/occurrence/download/statistics?fromDate=${startDate}&toDate=${endDate}&datasetKey=${datasetUUID}&limit=100`;
+    const url = `https://api.gbif.org/v1/occurrence/download/statistics?fromDate=${startDate}&toDate=${endDate}&datasetKey=${datasetUUID}`;
     const response = await fetch(url);
     if (response.ok) {
         const data = await response.json();
@@ -123,24 +123,22 @@ async function viewStatistics() {
 
 function saveStatistics() {
     const fileContent = [];
-    const header = `Year      Month     Total Records       Number of Downloads\n`;
+    const header = `Dataset,Year,Month,Total Records,Number of Downloads\n`;
+    fileContent.push(header);
     for (const datasetName of Object.keys(datasetVars)) {
-        fileContent.push(`Dataset: ${datasetName}`);
-        fileContent.push(header);
         for (const stats of allStatistics) {
             if (stats.dataset_name === datasetName) {
-                fileContent.push(`${String(stats.year).padEnd(10)}${String(stats.month).padEnd(10)}${String(stats.totalRecords).padEnd(20)}${String(stats.numberDownloads).padEnd(20)}`);
+                fileContent.push(`${datasetName},${String(stats.year)},${String(stats.month)},${String(stats.totalRecords)},${String(stats.numberDownloads)}\n`);
             }
         }
-        fileContent.push(`\n`);
     }
 
-    const blob = new Blob([fileContent.join('\n')], { type: 'text/plain' });
+    const blob = new Blob([fileContent.join('')], { type: 'text/csv' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     const currentDate = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
     a.href = url;
-    a.download = `download_statistics_${currentDate}.txt`;
+    a.download = `download_statistics_${currentDate}.csv`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
