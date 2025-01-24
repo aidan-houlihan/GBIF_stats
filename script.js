@@ -54,16 +54,7 @@ async function getDownloadStatistics(startDate, endDate, datasetUUID) {
     }
 }
 
-async function viewStatistics() {
-    const startDate = document.getElementById('start-date').value;
-    const endDate = document.getElementById('end-date').value;
-    const selectedDatasets = Object.keys(datasetVars).filter(dataset => datasetVars[dataset].checked);
-
-    if (!startDate || !endDate) {
-        alert("Please enter both start and end dates.");
-        return;
-    }
-
+async function fetchStatistics(startDate, endDate, selectedDatasets) {
     allStatistics.length = 0;
     for (const datasetName of selectedDatasets) {
         const datasetUUIDsList = Array.isArray(datasetUUIDs[datasetName]) ? datasetUUIDs[datasetName] : [datasetUUIDs[datasetName]];
@@ -105,6 +96,24 @@ async function viewStatistics() {
 
     allStatistics = allStatistics.filter(stats => stats.dataset_name !== 'Entomology');
     allStatistics.push(...Object.values(combinedEntomologyStats));
+}
+
+async function viewStatistics() {
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
+    const selectedDatasets = Object.keys(datasetVars).filter(dataset => datasetVars[dataset].checked);
+
+    if (!startDate || !endDate) {
+        alert("Please enter both start and end dates.");
+        return;
+    }
+
+    if (selectedDatasets.length === 0) {
+        alert("Please select at least one dataset.");
+        return;
+    }
+
+    await fetchStatistics(startDate, endDate, selectedDatasets);
 
     const output = document.getElementById('output');
     output.textContent = '';
@@ -121,7 +130,23 @@ async function viewStatistics() {
     }
 }
 
-function saveStatistics() {
+async function saveStatistics() {
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
+    const selectedDatasets = Object.keys(datasetVars).filter(dataset => datasetVars[dataset].checked);
+
+    if (!startDate || !endDate) {
+        alert("Please enter both start and end dates.");
+        return;
+    }
+
+    if (selectedDatasets.length === 0) {
+        alert("Please select at least one dataset.");
+        return;
+    }
+
+    await fetchStatistics(startDate, endDate, selectedDatasets);
+
     const fileContent = [];
     const header = `Dataset,Year,Month,Total Records,Number of Downloads\n`;
     fileContent.push(header);
