@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +13,19 @@
             margin: 0;
             padding: 20px;
         }
+
         h1 {
-            color: #4CAF50; /* Base color for headings */
+            color: #4CAF50;
+            /* Base color for headings */
         }
+
+        .footer {
+            text-align: center;
+            color: grey;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -23,36 +34,47 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .form-group {
             margin-bottom: 15px;
         }
+
         .form-group label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
-            color: #000000; /* Base color for labels */
+            color: #000000;
+            /* Base color for labels */
         }
+
         .form-group input[type="month"] {
             width: 100%;
             padding: 8px;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+
         .form-group .checkbox-container {
             display: flex;
-            flex-direction: column; /* Vertical list */
+            flex-direction: column;
+            /* Vertical list */
             gap: 10px;
         }
+
         .form-group .checkbox-item {
             display: flex;
             align-items: center;
             gap: 5px;
         }
+
         .form-group .checkbox-item label {
-            color: #333; /* Darker color for checkbox labels */
+            color: #333;
+            /* Darker color for checkbox labels */
         }
+
         .button {
-            background-color: #4CAF50; /* Base color for buttons */
+            background-color: #4CAF50;
+            /* Base color for buttons */
             color: white;
             padding: 10px 20px;
             border: none;
@@ -61,56 +83,74 @@
             margin-right: 10px;
             transition: background-color 0.3s ease;
         }
+
         .button:hover {
-            background-color: #45a049; /* Slightly darker shade for hover */
+            background-color: #45a049;
+            /* Slightly darker shade for hover */
         }
+
         /* New styles for the checkbox container and download button */
         .checkbox-item {
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Space between checkbox and button */
+            justify-content: space-between;
+            /* Space between checkbox and button */
             gap: 10px;
-            width: 100%; /* Ensure the container takes full width */
+            width: 100%;
+            /* Ensure the container takes full width */
         }
 
         .checkbox-item label {
-            flex-grow: 1; /* Allow the label to take up remaining space */
-            margin-right: 10px; /* Add some spacing between label and button */
+            flex-grow: 1;
+            /* Allow the label to take up remaining space */
+            margin-right: 10px;
+            /* Add some spacing between label and button */
         }
 
         .download-button {
-            background-color: #4CAF50; /* Base color for buttons */
+            background-color: #4CAF50;
+            /* Base color for buttons */
             color: white;
-            padding: 5px 10px; /* Smaller padding for a smaller button */
+            padding: 5px 10px;
+            /* Smaller padding for a smaller button */
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 12px; /* Smaller font size */
+            font-size: 12px;
+            /* Smaller font size */
             transition: background-color 0.3s ease;
-            white-space: nowrap; /* Prevent button text from wrapping */
+            white-space: nowrap;
+            /* Prevent button text from wrapping */
         }
 
         .download-button:hover {
-            background-color: #45a049; /* Slightly darker shade for hover */
+            background-color: #45a049;
+            /* Slightly darker shade for hover */
         }
 
         .date-input-container {
             display: flex;
-            gap: 10px; /* Space between the date inputs */
-            align-items: center; /* Align items vertically in the middle */
+            gap: 10px;
+            /* Space between the date inputs */
+            align-items: center;
+            /* Align items vertically in the middle */
         }
 
         .date-input-container .form-group {
-            margin-bottom: 0; /* Remove margin to keep inputs aligned */
-            flex: 1; /* Allow each input to take equal space */
+            margin-bottom: 0;
+            /* Remove margin to keep inputs aligned */
+            flex: 1;
+            /* Allow each input to take equal space */
         }
 
         .date-input-container label {
-            margin-bottom: 5px; /* Add some spacing below the label */
+            margin-bottom: 5px;
+            /* Add some spacing below the label */
         }
 
         .date-input-container input[type="date"] {
-            width: 100%; /* Ensure the input takes full width */
+            width: 100%;
+            /* Ensure the input takes full width */
         }
 
         #output {
@@ -122,17 +162,21 @@
             margin-top: 20px;
             font-family: monospace;
         }
+
         #chart-container {
             margin-top: 20px;
         }
+
         /* Loading Bar Styles */
         #loading-bar-container {
             width: 100%;
             background-color: #f1f1f1;
             border-radius: 4px;
             margin-top: 20px;
-            display: none; /* Hidden by default */
+            display: none;
+            /* Hidden by default */
         }
+
         #loading-bar {
             width: 0%;
             height: 10px;
@@ -140,13 +184,111 @@
             border-radius: 4px;
             transition: width 0.3s ease;
         }
+
+        /* Collapsible section styles */
+        .collapsible {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .collapsible::after {
+            content: '\25BC';
+            /* Down arrow */
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .active::after {
+            content: '\25B2';
+            /* Up arrow */
+        }
+
+        .active,
+        .collapsible:hover {
+            background-color: #45a049;
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .table th,
+        .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        /* Smaller button styles */
+        .small-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .small-button:hover {
+            background-color: #45a049;
+        }
     </style>
     <!-- Include Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <div class="container">
         <h1>GBIF Dataset Statistics</h1>
+        <button class="collapsible">User Guide - Click to Expand</button>
+        <div class="content">
+            <p>Welcome to the GBIF Dataset Statistics Tool!</p>
+            <p>To use this tool, start by selecting your desired date range using the <strong>Start Date</strong> and
+                <strong>End Date</strong> fields. Next, choose the datasets you want to analyze by checking the
+                corresponding boxes. You can quickly select or deselect all datasets using the <strong>Select/Deselect
+                    All</strong> option.
+            </p>
+            <p>Once your selections are made, click the <strong>View Statistics</strong> button to generate and display
+                the statistics. If you wish to download the usage statistics, click the <strong>Download Usage
+                    CSV</strong> button. For citation data, use the <strong>Download Citation Data</strong> button
+                available for each dataset.</p>
+            <p>While the statistics are being fetched, a loading bar will appear. Please wait until the process is
+                complete. The statistics for each dataset will be displayed in collapsible sections; click on the
+                section headers to expand or collapse the details. Additionally, a chart will show the download trends
+                over time for the selected datasets.</p>
+            <p>Enjoy using the tool! If you need help, contact Aidan Houlihan ah3789@drexel.edu.</p>
+        </div><br>
         <div class="date-input-container">
             <div class="form-group">
                 <label for="start-date">Start Date:</label>
@@ -182,6 +324,9 @@
             <canvas id="downloadsChart"></canvas>
         </div>
     </div>
+    <div class="footer">
+        Created by Aidan Houlihan (ah3789@drexel.edu) for ANSP, 2024
+    </div>
 
     <script>
         const datasetUUIDs = {
@@ -202,6 +347,21 @@
         const datasetVars = {};
         let allStatistics = [];
         let chart = null; // Variable to store the chart instance
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const collapsibles = document.querySelectorAll('.collapsible');
+            collapsibles.forEach(collapsible => {
+                collapsible.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    if (content.style.display === 'block') {
+                        content.style.display = 'none';
+                    } else {
+                        content.style.display = 'block';
+                    }
+                });
+            });
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
             const datasetCheckboxes = document.getElementById('dataset-checkboxes');
@@ -247,7 +407,7 @@
             for (const datasetUUID of datasetUUIDsList) {
                 const url = `https://api.gbif.org/v1/literature/export?format=CSV&gbifDatasetKey=${datasetUUID}`;
                 const response = await fetch(url);
-                
+
                 if (response.ok) {
                     const csvData = await response.text();
                     combinedCSV += csvData + '\n';
@@ -269,6 +429,7 @@
                 alert('No citation data available for the selected dataset.');
             }
         }
+
         async function getDownloadStatistics(startDate, endDate, datasetUUID) {
             const url = `https://api.gbif.org/v1/occurrence/download/statistics?fromDate=${startDate}&toDate=${endDate}&datasetKey=${datasetUUID}&limit=100`;
             const response = await fetch(url);
@@ -294,70 +455,66 @@
         }
 
         async function fetchStatistics(startDate, endDate, selectedDatasets) {
-    allStatistics.length = 0;
-    const totalSteps = selectedDatasets.length * 2; // Each dataset has 2 steps: download stats and citation stats
-    let currentStep = 0;
+            allStatistics.length = 0;
+            const startYear = new Date(startDate).getFullYear() + 1;
+            const endYear = new Date(endDate).getFullYear();
+            const totalSteps = selectedDatasets.length * 2 + selectedDatasets.length * (endYear - startYear); // Each dataset has 2 steps: download stats and citation stats
+            let currentStep = 0;
+            // Show the loading bar
+            const loadingBarContainer = document.getElementById('loading-bar-container');
+            const loadingBar = document.getElementById('loading-bar');
+            loadingBarContainer.style.display = 'block';
+            loadingBar.style.width = '0%';
 
-    // Show the loading bar
-    const loadingBarContainer = document.getElementById('loading-bar-container');
-    const loadingBar = document.getElementById('loading-bar');
-    loadingBarContainer.style.display = 'block';
-    loadingBar.style.width = '0%';
+            for (const datasetName of selectedDatasets) {
+                const datasetUUIDsList = Array.isArray(datasetUUIDs[datasetName]) ? datasetUUIDs[datasetName] : [datasetUUIDs[datasetName]];
+                const datasetStats = [];
+                for (const datasetUUID of datasetUUIDsList) {
+                    const statistics = await getDownloadStatistics(startDate, endDate, datasetUUID);
+                    if (Array.isArray(statistics)) {
+                        for (const stats of statistics) {
+                            stats.dataset_name = datasetName;
+                            datasetStats.push(stats);
+                        }
+                    }
+                    currentStep++;
+                    // Ensure the width does not exceed 100%
+                    const progress = Math.min((currentStep / totalSteps) * 100, 100);
+                    loadingBar.style.width = `${progress}%`;
+                }
+                if (datasetStats.length === 0) {
+                    datasetStats.push({ dataset_name: datasetName, year: 'N/A', month: 'N/A', totalRecords: 0, numberDownloads: 0 });
+                }
+                allStatistics.push(...datasetStats);
 
-    for (const datasetName of selectedDatasets) {
-        const datasetUUIDsList = Array.isArray(datasetUUIDs[datasetName]) ? datasetUUIDs[datasetName] : [datasetUUIDs[datasetName]];
-        const datasetStats = [];
-        for (const datasetUUID of datasetUUIDsList) {
-            const statistics = await getDownloadStatistics(startDate, endDate, datasetUUID);
-            if (Array.isArray(statistics)) {
-                for (const stats of statistics) {
-                    stats.dataset_name = datasetName;
-                    datasetStats.push(stats);
+                // Fetch citation data for the dataset by year
+                const startYear = new Date(startDate).getFullYear() + 1;
+                const endYear = new Date(endDate).getFullYear();
+                for (let year = startYear; year <= endYear; year++) {
+                    let combinedCitationCount = 0;
+                    for (const datasetUUID of datasetUUIDsList) {
+                        const citationCount = await getCitationStatistics(datasetUUID, year);
+                        combinedCitationCount += citationCount;
+                    }
+                    // Assign the citation count to all relevant stats
+                    for (const stats of allStatistics) {
+                        if (stats.dataset_name === datasetName && stats.year === year) {
+                            stats.citationCount = combinedCitationCount;
+                        }
+                    }
+                    currentStep++;
+                    // Ensure the width does not exceed 100%
+                    const progress = Math.min((currentStep / totalSteps) * 100, 100);
+                    loadingBar.style.width = `${progress}%`;
                 }
             }
-            currentStep++;
-            // Ensure the width does not exceed 100%
-            const progress = Math.min((currentStep / totalSteps) * 100, 100);
-            loadingBar.style.width = `${progress}%`;
+            // Ensure the loading bar is at 100% when done
+            loadingBar.style.width = '100%';
+            // Hide the loading bar after completion
+            setTimeout(() => {
+                loadingBarContainer.style.display = 'none';
+            }, 500); // Delay hiding to show the 100% completion briefly
         }
-
-        if (datasetStats.length === 0) {
-            datasetStats.push({ dataset_name: datasetName, year: 'N/A', month: 'N/A', totalRecords: 0, numberDownloads: 0 });
-        }
-
-        allStatistics.push(...datasetStats);
-
-        // Fetch citation data for the dataset
-        // const startYear = new Date(startDate).getFullYear() + 1;
-        // const endYear = new Date(endDate).getFullYear();
-        // const yearRange = `${startYear},${endYear}`;
-        // let combinedCitationCount = 0;
-
-        // for (const datasetUUID of datasetUUIDsList) {
-        //     const citationCount = await getCitationStatistics(datasetUUID, yearRange);
-        //     combinedCitationCount += citationCount;
-        //     currentStep++;
-        //     // Ensure the width does not exceed 100%
-        //     const progress = Math.min((currentStep / totalSteps) * 100, 100);
-        //     loadingBar.style.width = `${progress}%`;
-        // }
-
-        // // Assign the combined citation count to all relevant stats
-        // for (const stats of allStatistics) {
-        //     if (stats.dataset_name === datasetName) {
-        //         stats.citationCount = combinedCitationCount;
-        //     }
-        // }
-    }
-
-    // Ensure the loading bar is at 100% when done
-    loadingBar.style.width = '100%';
-
-    // Hide the loading bar after completion
-    setTimeout(() => {
-        loadingBarContainer.style.display = 'none';
-    }, 500); // Delay hiding to show the 100% completion briefly
-}
 
         function renderChart(selectedDatasets) {
             const ctx = document.getElementById('downloadsChart').getContext('2d');
@@ -433,59 +590,81 @@
             const startDate = document.getElementById('start-date').value;
             const endDate = document.getElementById('end-date').value;
             const selectedDatasets = Object.keys(datasetVars).filter(dataset => datasetVars[dataset].checked);
-
             if (!startDate || !endDate) {
                 alert("Please enter both start and end dates.");
                 return;
             }
-
             // Validate that the end date is after the start date
             if (new Date(endDate) <= new Date(startDate)) {
                 alert("The end date must be after the start date.");
                 return;
             }
-
             if (selectedDatasets.length === 0) {
                 alert("Please select at least one dataset.");
                 return;
             }
-
             await fetchStatistics(startDate, endDate, selectedDatasets);
-
             const output = document.getElementById('output');
-            output.textContent = '';
-            const header = `Year      Month     Total Records       Number of Downloads\n`;
+            output.innerHTML = ''; // Clear previous output
             for (const datasetName of selectedDatasets) {
-                output.textContent += `Dataset: ${datasetName}\n`;
-                output.textContent += header;
+                // Create collapsible button
+                const collapsibleButton = document.createElement('button');
+                collapsibleButton.className = 'collapsible';
+                collapsibleButton.textContent = `${datasetName} Download Usage - Click to Expand`;
+                output.appendChild(collapsibleButton);
+
+                // Create content div
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'content';
+
+                // Create table for statistics
+                const table = document.createElement('table');
+                table.className = 'table';
+                const thead = document.createElement('thead');
+                const tbody = document.createElement('tbody');
+                thead.innerHTML = `<tr><th>Year</th><th>Month</th><th>Total Records</th><th>Number of Downloads</th></tr>`;
                 for (const stats of allStatistics) {
                     if (stats.dataset_name === datasetName) {
-                        output.textContent += `${String(stats.year).padEnd(10)}${String(stats.month).padEnd(10)}${String(stats.totalRecords).padEnd(20)}${String(stats.numberDownloads).padEnd(20)}\n`;
+                        const row = document.createElement('tr');
+                        row.innerHTML = `<td>${stats.year}</td><td>${stats.month}</td><td>${stats.totalRecords}</td><td>${stats.numberDownloads}</td>`;
+                        tbody.appendChild(row);
                     }
                 }
+                table.appendChild(thead);
+                table.appendChild(tbody);
+                contentDiv.appendChild(table);
 
-                const datasetUUIDsList = Array.isArray(datasetUUIDs[datasetName]) ? datasetUUIDs[datasetName] : [datasetUUIDs[datasetName]];
-                let combinedCitationCount = 0;
-
-                // Display citation data for the dataset
+                // Create table for citation stats
+                const citationTable = document.createElement('table');
+                citationTable.className = 'table';
+                const citationThead = document.createElement('thead');
+                const citationTbody = document.createElement('tbody');
+                citationThead.innerHTML = `<tr><th>Year</th><th>Citations</th></tr>`;
                 const startYear = new Date(startDate).getFullYear() + 1;
                 const endYear = new Date(endDate).getFullYear();
-                if (startYear === endYear) {
-                    output.textContent += `Citations ${startYear}: ${allStatistics.find(stats => stats.dataset_name === datasetName).citationCount || 0}\n`;
-                } else {
-                    for (let year = startYear; year <= endYear; year++) {
-                        combinedCitationCount = 0;
-                        // Fetch citations for each UUID separately
-                        for (const datasetUUID of datasetUUIDsList) {
-                            const citationCount = await getCitationStatistics(datasetUUID, year);
-                            combinedCitationCount += citationCount;
-                        }
-                        output.textContent += `Citations ${year}: ${combinedCitationCount}\n`;
-                    }
+                for (let year = startYear; year <= endYear; year++) {
+                    const row = document.createElement('tr');
+                    const citationCount = allStatistics.find(stats => stats.dataset_name === datasetName && stats.year === year)?.citationCount || 0;
+                    row.innerHTML = `<td>${year}</td><td>${citationCount}</td>`;
+                    citationTbody.appendChild(row);
                 }
-                output.textContent += `\n`;
-            }
+                citationTable.appendChild(citationThead);
+                citationTable.appendChild(citationTbody);
+                contentDiv.appendChild(citationTable);
 
+                output.appendChild(contentDiv);
+
+                // Add event listener for collapsible button
+                collapsibleButton.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    if (content.style.display === 'block') {
+                        content.style.display = 'none';
+                    } else {
+                        content.style.display = 'block';
+                    }
+                });
+            }
             // Render the chart
             renderChart(selectedDatasets);
         }
@@ -535,4 +714,5 @@
         }
     </script>
 </body>
+
 </html>
